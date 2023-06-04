@@ -1,0 +1,43 @@
+.hero {
+  padding: 275px 0 200px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__content {
+    max-width: 995px;
+  }
+  &__title {
+    font-size: 48px;
+    line-height: 180%;
+    margin-bottom: 30px;
+    color: var(--color-black);
+  }
+  &__descr {
+    text-transform: uppercase;
+    max-width: 350px;
+  }
+  &__image {
+    width: 270px;
+    height: 270px;
+    margin-right: 100px;
+    transform-origin: center;
+    animation: cirle 10s linear infinite;
+  }
+  &__img {
+
+  }
+}
+
+@keyframes cirle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

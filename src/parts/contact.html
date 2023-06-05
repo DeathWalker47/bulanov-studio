@@ -8,7 +8,9 @@
         <div class="contact__title">
             <span>Есть </span>
             <div class="contact__title-video">
-              <video src=""></video>
+              <video class="video" autoplay muted loop playsinline width="80" height="80">
+                <source src="./video.mp4" type="video/mp4">
+              </video>
             </div>
             <span> крутая идея?</span>
           </div>
@@ -32,32 +34,32 @@
         <fieldset class="form__checkbox">
           <legend class="form__title">Мне нужно:</legend>
           <label class="custom-checkbox">
-            <input type="radio" class="custom-checkbox__field" name="Услуга" value="Лендинг">
+            <input type="checkbox" class="custom-checkbox__field" name="Услуга" value="Лендинг">
             <span class="custom-checkbox__content">Лендинг</span>
           </label>
 
           <label class="custom-checkbox">
-            <input type="radio" class="custom-checkbox__field" name="Услуга" value="Многостраничный">
+            <input type="checkbox" class="custom-checkbox__field" name="Услуга" value="Многостраничный">
             <span class="custom-checkbox__content">Многостраничный</span>
           </label>
 
           <label class="custom-checkbox">
-            <input type="radio" class="custom-checkbox__field" name="Услуга" value="Логотип">
+            <input type="checkbox" class="custom-checkbox__field" name="Услуга" value="Логотип">
             <span class="custom-checkbox__content">Логотип</span>
           </label>
 
           <label class="custom-checkbox">
-            <input type="radio" class="custom-checkbox__field" name="Услуга" value="Мобильное приложение">
+            <input type="checkbox" class="custom-checkbox__field" name="Услуга" value="Мобильное приложение">
             <span class="custom-checkbox__content">Мобильное приложение</span>
           </label>
 
           <label class="custom-checkbox">
-            <input type="radio" class="custom-checkbox__field" name="Услуга" value="Мобильный сайт">
+            <input type="checkbox" class="custom-checkbox__field" name="Услуга" value="Мобильный сайт">
             <span class="custom-checkbox__content">Мобильный сайт</span>
           </label>
 
           <label class="custom-checkbox">
-            <input type="radio" class="custom-checkbox__field" name="Услуга" value="Брендинг">
+            <input type="checkbox" class="custom-checkbox__field" name="Услуга" value="Брендинг">
             <span class="custom-checkbox__content">Брендинг</span>
           </label>
 
@@ -87,7 +89,18 @@
             Расскажите вкратце о будущем проекте
             <textarea class="form__textarea form__input" name="О проекте" placeholder="Это будет что-то такое..."></textarea>
           </label>
-        <button class="btn-reset form__btn">Оставить заявку</button>
+        <div class="form__btn-box btn-pulse">
+          <button class="btn-reset form__btn btn-form" type="submit">
+            <span class="btn-form__text btn-form__text--one">Оставить</span>
+            <span class="btn-form__text btn-form__text--two">заявку</span>
+          </button>
+          <div class="puls">
+            <div class="puls__line"></div>
+            <div class="puls__line"></div>
+            <div class="puls__line"></div>
+            <div class="puls__line"></div>
+          </div>
+        </div>
       </form>
     </div>
   </div>

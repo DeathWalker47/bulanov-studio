@@ -30,6 +30,7 @@ html {
   flex-direction: column;
   overflow: hidden;
   min-height: 100%;
+  z-index: 1;
 }
 
 .main {
@@ -44,6 +45,7 @@ html {
 
 .section-page {
   min-height: 100vh;
+  background-color: #fff;
 }
 
 .title {

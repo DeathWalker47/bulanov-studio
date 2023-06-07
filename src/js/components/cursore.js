@@ -1,7 +1,7 @@
 import { left } from "@popperjs/core";
 import { gsap } from "gsap";
 
-let mouseX, mouseY, posX, posY
+let mouseX, mouseY, posX, posY, coordLeft,linkCoords
 
 const  customCursor = document.querySelector('.cursor-custom'),
        cursorScale = document.querySelectorAll('.cursor-scale'),
@@ -11,8 +11,7 @@ const  customCursor = document.querySelector('.cursor-custom'),
 mouseX = 0,
 mouseY = 0,
 posX = 0,
-posY = 0
-
+posY = 0,
 
 
 gsap.to({}, .0016, {
@@ -20,8 +19,8 @@ gsap.to({}, .0016, {
 
   onRepeat: () => {
 
-    posX += (mouseX - posX) / 7
-		posY += (mouseY - posY) / 7
+    posX += (mouseX - posX) / 7.5
+		posY += (mouseY - posY) / 7.5
 
     gsap.set(customCursor, {
       css: {
@@ -38,35 +37,51 @@ window.addEventListener('mousemove', (e)=> {
 })
 
 cursorScale.forEach( link => {
+
+  let coordLeft = link.getBoundingClientRect().left
+  let coordTop = link.getBoundingClientRect().top
+  let linkCoordsLeft
+  let linkCoordsTop
+
+  let coordCustom = customCursor.getBoundingClientRect().left
+
+  // console.log(mouseX);
+
   link.addEventListener('mousemove', ()=>{
     customCursor.classList.add('cursor-custom--link');
-    gsap.to(link, {
-      repeat: -1,
-      onRepeat: () => {
 
-        posX += (mouseX - posX)
-        posY += (mouseY - posY)
-        gsap.set(link, {
-          css: {
-            left:  posX * 0 + 10
-          }
-        })
-      }
-    },
-    )
-    // gsap.fromTo(link, {
-    //   repeat: -1,
-    //   left: mouseX * 0
-    // },
-    // {
-    //   left: mouseX * 0 + 10
-    // }
-    // )
 
+    // linkCoordsLeft = mouseX - coordLeft - 15
+    linkCoordsLeft =( mouseX - posX ) / 1.3
+    linkCoordsTop = (mouseY - posY) / 1.3
+
+    console.log(posX);
     console.log(mouseX);
+
+
+    gsap.to(link, {
+        x: linkCoordsLeft,
+        y: linkCoordsTop,
+    })
+
+    if(linkCoordsLeft > 40 || linkCoordsLeft< -1000 || linkCoordsTop > 15){
+
+      gsap.to(link, {
+        x: 0,
+        y: 0
+      })
+    }
+
   });
+
   link.addEventListener('mouseleave', () => {
     customCursor.classList.remove('cursor-custom--link');
+
+    gsap.to(link, {
+        x: 0,
+        y: 0
+    })
+
   })
 })
 

@@ -74,10 +74,12 @@
     position: relative;
     overflow: hidden;
     color:var(--color-black);
-    transition: color .3s ease-in-out;
+    transition: color .3s ease-in-out, transform .3s linear;
+    will-change: transform;
     span {
       display: inline-block;
-      transition: transform .5s ease;
+      transition: transform .5s ease-in-out;
+      will-change: transform;
     }
   }
 }

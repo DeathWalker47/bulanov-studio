@@ -1,4 +1,3 @@
-import { left } from "@popperjs/core";
 import { gsap } from "gsap";
 
 let mouseX, mouseY, posX, posY, coordLeft,linkCoords
@@ -19,8 +18,8 @@ gsap.to({}, .0016, {
 
   onRepeat: () => {
 
-    posX += (mouseX - posX) / 7.5
-		posY += (mouseY - posY) / 7.5
+    posX += (mouseX - posX) / 4
+		posY += (mouseY - posY) / 4
 
     gsap.set(customCursor, {
       css: {

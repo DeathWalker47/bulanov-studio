@@ -10,7 +10,7 @@
   background-color: #fff;
   z-index:1000;
   pointer-events: none;
-  transition: width .3s ease, height .3s ease, transform .3s ease;
+  transition: width .3s ease, height .3s ease, transform .1s ease;
   will-change: transform;
 
   &--link {

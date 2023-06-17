@@ -11,38 +11,37 @@ pageSection  = gsap.utils.toArray(".section-page");
 
 
 
-function goToSection(section) {
-  gsap.to(window, {
-    scrollTo: {y: section, autoKill: false},
-    duration: 1
-  });
+// function goToSection(section) {
+//   gsap.to(window, {
+//     scrollTo: {y: section, autoKill: false},
+//     duration: 1
+//   });
 
-}
+// }
 
-pageSection.forEach(section => {
-  const intoAnim = gsap.timeline({paused: true})
+// pageSection.forEach(section => {
+//   const intoAnim = gsap.timeline({paused: true})
 
-  ScrollTrigger.create({
-    trigger: section,
-    onEnter: () => goToSection(section, intoAnim),
-  });
+//   ScrollTrigger.create({
+//     trigger: section,
+//     onEnter: () => goToSection(section, intoAnim),
+//   });
 
-  ScrollTrigger.create({
-    trigger: section,
-    start: "bottom bottom",
-    onEnterBack: () => goToSection(section),
-  });
-});
+//   ScrollTrigger.create({
+//     trigger: section,
+//     start: "bottom bottom",
+//     onEnterBack: () => goToSection(section),
+//   });
+// });
+
+////////////////////////
+
 // function goToSection(i) {
 //   gsap.to(window, {
 //     scrollTo: { y: i * innerHeight, autoKill: false, ease: "Power3.easeInOut" },
-//     duration: 0.85
+//     duration: 1.4
 //   });
 // }
-
-// ScrollTrigger.defaults({
-//   // markers: true
-// });
 
 // pageSection.forEach((eachPanel, i) => {
 

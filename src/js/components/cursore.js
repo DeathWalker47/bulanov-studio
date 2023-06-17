@@ -54,8 +54,6 @@ cursorScale.forEach( link => {
     linkCoordsLeft =( mouseX - posX ) / 1.3
     linkCoordsTop = (mouseY - posY) / 1.3
 
-    console.log(posX);
-    console.log(mouseX);
 
 
     gsap.to(link, {

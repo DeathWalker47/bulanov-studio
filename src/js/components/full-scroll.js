@@ -5,11 +5,9 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 
-let pageSection
+let pageSection, hoverImgMenu
 
-pageSection  = gsap.utils.toArray(".section-page");
-
-
+// pageSection  = gsap.utils.toArray(".section-page");
 
 // function goToSection(section) {
 //   gsap.to(window, {

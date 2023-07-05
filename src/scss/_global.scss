@@ -6,7 +6,7 @@ html {
 .page {
   height: 100%;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 .page__body {
@@ -52,8 +52,8 @@ html {
   background-color: #fff;
 }
 
-.title {
-  // color: $title;
+.wrapper-site {
+  position: relative;
 }
 
 .visually-hidden {
@@ -98,7 +98,7 @@ html {
 .dis-scroll {
   position: fixed;
   left: 0;
-  top: 0;
+  // top: 0;
   overflow: hidden;
   width: 100%;
   height: 100vh;

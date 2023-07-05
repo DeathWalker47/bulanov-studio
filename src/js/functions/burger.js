@@ -26,9 +26,11 @@ import { enableScroll } from '../functions/enable-scroll';
     if(burger.classList.contains('burger--active')) {
       fullMenu.classList.add('full-menu-header--active');
       headerNav.classList.add('nav--active')
+
     } else {
       fullMenu.classList.remove('full-menu-header--active');
       headerNav.classList.remove('nav--active')
+
     }
   });
 

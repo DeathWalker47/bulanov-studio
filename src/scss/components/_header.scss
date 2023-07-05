@@ -7,6 +7,13 @@
   padding: 50px 0 50px;
   z-index: 3;
   font-size: 20px;
+  // mix-blend-mode: difference;
+  * {
+    color: var(--color-black);
+    // color: #fff;
+    border-color: var(--color-black);
+    transform: color .3s ease, border-color .3s ease;
+  }
 
   &__inner {
     display: flex;
@@ -21,11 +28,11 @@
     position: relative;
     display: block;
     padding: 12px 40px;
-    color:var(--color-black);
+    // color:var(--color-black);
     margin-right: 30px;
-    border: 1px solid var(--color-black);
     border-radius: 25px;
-
+    border-style: solid;
+    border-width: 1px;
     &::before {
       position: absolute;
       content: '';
@@ -41,7 +48,7 @@
   &__right-burger {
     display: flex;
     align-items: center;
-    color:var(--color-black);
+    // color:var(--color-black);
 
     button {
       display: block;
@@ -80,7 +87,7 @@
     display: flex;
     position: relative;
     overflow: hidden;
-    color:var(--color-black);
+    // color:var(--color-black);
     transition: color .3s ease-in-out, transform .3s linear;
     will-change: transform;
     span {

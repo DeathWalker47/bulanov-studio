@@ -1,11 +1,11 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 
-let pageSection, hoverImgMenu
+// let pageSection, hoverImgMenu
 
 // pageSection  = gsap.utils.toArray(".section-page");
 

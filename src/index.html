@@ -9,18 +9,20 @@
   <title>Document</title>
   <script defer src="js/main.js"></script>
 </head>
-<body class="page__body">
+<body class="page__body ">
   <div class="wrapper">
-    @include('parts/header.html')
-    @include('parts/full-menu.html')
-    <main class="main">
-    @include('parts/hero.html')
-    @include('parts/about.html')
-    @include('parts/you-ready.html')
-    @include('parts/contact.html')
-    </main>
-    @include('parts/footer.html')
-    <div class="cursor-custom">
+    <div class="wrapper-site">
+      @include('parts/header.html')
+      @include('parts/full-menu.html')
+      <main class="main">
+      @include('parts/hero.html')
+      @include('parts/about.html')
+      @include('parts/you-ready.html')
+      @include('parts/contact.html')
+      </main>
+      @include('parts/footer.html')
+      <div class="cursor-custom">
+      </div>
     </div>
   </div>
 </body>

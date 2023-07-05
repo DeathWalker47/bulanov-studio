@@ -10,11 +10,12 @@
   overflow-y: auto;
   z-index: 2;
   transform: translate(10%,-150%) rotate(12deg);
-  opacity: 0;
-  transition: transform .75s ease, opacity .75s ease;
+  opacity: .5;
+  transition: transform .75s ease, opacity .7s ease;
   &--active {
     opacity: 1;
-    transform: none;
+    transform: translate(0) rotate(0deg);
+
   }
   .logo  {
     display: inline-block;

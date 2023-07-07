@@ -1,5 +1,6 @@
 .hero {
   padding: 275px 0 200px;
+  top: 0;
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -18,13 +19,23 @@
     max-width: 350px;
   }
   &__image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 270px;
     height: 270px;
     margin-right: 100px;
-    transform-origin: center;
-    animation: cirle 10s linear infinite;
+    svg {
+      width: 133px;
+      height: 130px;
+      position: absolute;
+      object-fit: cover;
+    }
   }
   &__img {
+    transform-origin: center;
+    animation: cirle 10s linear infinite;
 
   }
 }
@@ -40,4 +51,12 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+.eye-top {
+transform:translateY() scaleY(1) ;
+}
+.eye-bottom {
+  transform: translateY(0) scaleY(1);
 }

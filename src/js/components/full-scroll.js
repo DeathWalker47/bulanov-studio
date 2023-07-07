@@ -8,7 +8,19 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 let pageSection, hoverImgMenu, wrapperSite, observer
 
 observer = new IntersectionObserver((entries) => {
-  console.log(entries);
+  // console.log(entries);
+  entries.forEach((entry) => {
+    if(entry.isIntersecting) {
+      // console.log(entry.target.className);
+      if((entry.target.className === "do-it section-page") || (entry.target.className === "section-page ready") ) {
+        document.querySelector('.header').classList.add('header--black')
+      } else {
+        document.querySelector('.header').classList.remove('header--black')
+      }
+    }
+  })
+}, {
+  threshold: 0.9
 })
 
 
@@ -26,8 +38,8 @@ ScrollTrigger.create({
   animation:tl,
   trigger:'.about',
   start:' center center',
-  // end:'bottom bottom',
-  end:'+=500px',
+  end:'bottom bottom',
+  // end:'+=500px',
   scrub: true,
   duration: 3000,
 })

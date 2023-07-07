@@ -3,6 +3,7 @@
   display: flex;
   padding: 180px 0 50px;
   overflow-x: hidden;
+  --transition: opacity .6s linear, transform .6s linear;
   &__inner {
     display: flex;
     flex-flow: 1;
@@ -19,11 +20,11 @@
     width: 100%;
     flex-shrink: 0;
     opacity: 1;
-    transition: opacity .5s linear, transform .5s linear;
+    transition: var(--transition);
   }
   &__slide {
     width: calc(100% - 730px - 15px);
-    transition: opacity .5s linear, transform .5s linear;
+    transition: var(--transition);
   }
 
 }

@@ -55,8 +55,22 @@
 
 
 .eye-top {
-transform:translateY() scaleY(1) ;
+  fill:#FFEEEE;
+  transform:translateY(-5px) ;
+  opacity: 0;
+  transition: transform .3s ease, opacity .5s ease;
 }
 .eye-bottom {
-  transform: translateY(0) scaleY(1);
+  fill:#FFEEEE;
+  transform: translateY(5px);
+  opacity: 0;
+  transition: transform .3s ease, opacity .5s ease;
 }
+
+.eye-bottom.active,
+.eye-top.active {
+  opacity: 1;
+  transform: none;
+}
+
+

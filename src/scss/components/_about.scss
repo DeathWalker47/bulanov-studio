@@ -3,12 +3,12 @@
   display: flex;
   padding: 180px 0 50px;
   overflow-x: hidden;
-  --transition: opacity .6s linear, transform .6s linear;
+  --transition: opacity .3s linear, transform .3s linear;
   &__inner {
     display: flex;
     flex-flow: 1;
     padding-left: max(75px, calc((100% - 1850px) /2));
-    overflow: hidden;
+    // overflow: hidden;
   }
   &__title {
     font-size: 85px;
@@ -23,6 +23,7 @@
     transition: var(--transition);
   }
   &__slide {
+    opacity: 1;
     width: calc(100% - 730px - 15px);
     transition: var(--transition);
   }
@@ -163,16 +164,87 @@
 
 
 .descr-us {
+  height: 200vh;
+
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 50px;
   text-align: center;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+  }
   &__text {
+
+    display: block;
+    position: relative;
     color: var(--color-black);
     font-size: 96px;
     line-height: 170%;
     width: 941px;
+
+  }
+  &__team {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    transform: translate(100%, -50%);
+    opacity: 0;
+    transition: opacity .5s ease, transform .5s ease;
+    will-change: transform;
+  }
+  &__team-link{
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    border-radius: 100%;
+    transition: transform .3s ease-in-out, margin-left .3s ease-in-out, opacity .3s ease-in-out;
+    &:not(:first-child) {
+      margin-left: -75px;
+    }
+    &:hover {
+     transform: scale(1.2);
+      will-change: transform;
+    }
+  }
+  &__team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
+.black-circle {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(150vw) scaleY(2);
+  transition: transform 1s linear;
+  &__box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200vw;
+    height: 200vh;
+    background-color: var(--color-black);
+    border-radius:100%;
+
+  }
+}

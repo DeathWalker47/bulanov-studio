@@ -1,11 +1,11 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { right } from "@popperjs/core";
+import { bottom, right } from "@popperjs/core";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-let pageSection, hoverImgMenu, wrapperSite, observer
+let pageSection, hoverImgMenu, wrapperSite, observer, heightDescrContainer
 
 observer = new IntersectionObserver((entries) => {
   // console.log(entries);
@@ -16,6 +16,12 @@ observer = new IntersectionObserver((entries) => {
         document.querySelector('.header').classList.add('header--black')
       } else {
         document.querySelector('.header').classList.remove('header--black')
+      }
+
+      if(entry.target.className === 'section-page ready') {
+        document.querySelector('.line').classList.add('line-animate')
+      } else {
+        document.querySelector('.line').classList.remove('line-animate')
       }
     }
   })
@@ -34,37 +40,81 @@ pageSection.forEach(el => {
 
 let tl = gsap.timeline();
 
-ScrollTrigger.create({
-  animation:tl,
-  trigger:'.about',
-  start:' center center',
-  end:'bottom bottom',
-  // end:'+=500px',
-  scrub: true,
-  duration: 3000,
-})
+// ScrollTrigger.create({
+//   animation:tl,
+//   trigger:'.about',
+//   start:' center center',
+//   end:'bottom bottom',
+//   scrub: 1,
+//   markers: true,
+// })
 
+heightDescrContainer = document.querySelector('.descr-us__container').clientHeight + 400;
+console.log(heightDescrContainer);
 tl.from('.about__title', {
-  yPercent: 60,
-  opacity:0
+  scrollTrigger: {
+    trigger:'.about',
+    start:' center center',
+    end: '+=200',
+    scrub: 1,
+  },
+  xPercent: -60,
+  opacity: 0
 })
 .from('.about__slide', {
+  scrollTrigger: {
+    trigger:'.about',
+    start:' center center',
+    end: '+=200',
+    scrub: 1,
+  },
   xPercent: 60,
   opacity: 0
 },0)
+.to('.about__inner', {
+  scrollTrigger: {
+    trigger: '.about',
+    start:'bottom bottom',
+    end: '+=2000',
+    scrub: true,
+    ease: "none",
+  },
+  xPercent: -50
+})
+.to('.descr-us__team', {
+  scrollTrigger: {
+    trigger: '.descr-us__container',
+    start: '+=400 center',
+    end:'+=500 center',
+    scrub: true,
 
-// tl.to('.about__inner', {
-//   scrollTrigger: {
-//     trigger: '.about',
-//     start:'bottom bottom',
-//     end: '+=2000',
-//     scrub: true,
-//     duration: 3,
-//     ease: "none",
-//     markers:true
-//   },
-//   xPercent: -50
-// })
+  },
+  opacity: 1,
+  x: 0,
+})
+.to('.descr-us__team-link', {
+  scrollTrigger: {
+    trigger: '.descr-us__container',
+    start: '+=450 center',
+    end: '+=550 center',
+    scrub: 0.5,
+    snap: {
+      duration:0.5,
+      delay:1
+    }
+  },
+  marginLeft: -15,
+})
+.to('.black-circle', {
+  scrollTrigger: {
+    trigger:'.descr-us',
+    start:'heightDescrContainer',
+    end:'+=1000 ',
+    scrub: true,
+  },
+  x:0,
+  scale:4,
+})
 
 
 // let tl = gsap.timeline({

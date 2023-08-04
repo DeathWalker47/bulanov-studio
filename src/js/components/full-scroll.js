@@ -50,71 +50,91 @@ let tl = gsap.timeline();
 // })
 
 heightDescrContainer = document.querySelector('.descr-us__container').clientHeight + 400;
-console.log(heightDescrContainer);
-tl.from('.about__title', {
+let sectionPanel = gsap.utils.toArray('.about .panel');
+let sectionContainer = document.querySelector('.about__inner')
+tl.to('.about__title', {
   scrollTrigger: {
     trigger:'.about',
-    start:' center center',
-    end: '+=200',
-    scrub: 1,
+    start:'top center',
+    end: '+=400',
+    scrub: true,
+
   },
-  xPercent: -60,
-  opacity: 0
+  xPercent: 40,
+  opacity: 1
 })
-.from('.about__slide', {
+.to('.about__slide', {
   scrollTrigger: {
     trigger:'.about',
+    // start:' center center',
+    // end: '+=200',
     start:' center center',
     end: '+=200',
-    scrub: 1,
+    scrub: true,
   },
-  xPercent: 60,
-  opacity: 0
+  xPercent: -40,
+  opacity: 1
 },0)
-.to('.about__inner', {
+.to(sectionPanel, {
+  xPercent: -80 * (sectionPanel.length - 1),
+  ease: 'none',
+  duration: 6,
   scrollTrigger: {
     trigger: '.about',
-    start:'bottom bottom',
-    end: '+=2000',
+    pin: true,
     scrub: true,
-    ease: "none",
-  },
-  xPercent: -50
+    end: `+=${sectionContainer.offsetWidth}`
+  }
 })
 .to('.descr-us__team', {
   scrollTrigger: {
-    trigger: '.descr-us__container',
-    start: '+=400 center',
-    end:'+=500 center',
+    trigger: '.descr-us',
+    // start: '+=400 center',
+    start: 'center center',
+    // end:'+=500 center',
+    markers:true,
     scrub: true,
-
+    pin:true,
   },
   opacity: 1,
   x: 0,
 })
-.to('.descr-us__team-link', {
-  scrollTrigger: {
-    trigger: '.descr-us__container',
-    start: '+=450 center',
-    end: '+=550 center',
-    scrub: 0.5,
-    snap: {
-      duration:0.5,
-      delay:1
-    }
-  },
-  marginLeft: -15,
-})
-.to('.black-circle', {
-  scrollTrigger: {
-    trigger:'.descr-us',
-    start:'heightDescrContainer',
-    end:'+=1000 ',
-    scrub: true,
-  },
-  x:0,
-  scale:4,
-})
+// .to('.descr-us__team-link', {
+//   scrollTrigger: {
+//     trigger: '.descr-us__container',
+//     start: '+=450 center',
+//     end: '+=550 center',
+//     scrub: 1,
+//     snap: {
+//       duration:0.5,
+//       delay:1
+//     }
+//   },
+//   marginLeft: -15,
+// })
+// .to('.black-circle', {
+//   scrollTrigger: {
+//     trigger:'.descr-us',
+//     start:'heightDescrContainer',
+//     end:'+=1000 ',
+//     scrub: true,
+//   },
+//   x:0,
+//   scale:4,
+// })
+
+// let animontAnier = tl.to(sectionPanel, {
+//   xPercent: -80 * (sectionPanel.length - 1),
+//   ease: 'none',
+//   duration: 6,
+//   scrollTrigger: {
+//     trigger: '.about',
+//     pin: true,
+//     scrub: true,
+//     end: `+=${sectionContainer.offsetWidth}`
+//   }
+// })
+
 
 
 // let tl = gsap.timeline({

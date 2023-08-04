@@ -147,6 +147,7 @@ html {
   color:var(--color-black);
   span {
     transition: transform .5s ease;
+    pointer-events: none;
   }
   &__span {
     display: flex;

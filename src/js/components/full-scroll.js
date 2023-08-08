@@ -48,10 +48,11 @@ let tl = gsap.timeline();
 //   scrub: 1,
 //   markers: true,
 // })
-
+let descrHeight = document.querySelector('.descr-us').clientHeight
 heightDescrContainer = document.querySelector('.descr-us__container').clientHeight + 400;
 let sectionPanel = gsap.utils.toArray('.about .panel');
 let sectionContainer = document.querySelector('.about__inner')
+let teamLink = gsap.utils.toArray('.descr-us__team-link')
 tl.to('.about__title', {
   scrollTrigger: {
     trigger:'.about',
@@ -76,7 +77,7 @@ tl.to('.about__title', {
   opacity: 1
 },0)
 .to(sectionPanel, {
-  xPercent: -80 * (sectionPanel.length - 1),
+  xPercent: -73 * (sectionPanel.length - 1),
   ease: 'none',
   duration: 6,
   scrollTrigger: {
@@ -86,41 +87,34 @@ tl.to('.about__title', {
     end: `+=${sectionContainer.offsetWidth}`
   }
 })
-.to('.descr-us__team', {
+
+.to(teamLink, {
+  xPercent: -100 * (teamLink.length - 1),
+  opacity:1,
+  ease: 'none',
+  stagger: 0.5,
   scrollTrigger: {
     trigger: '.descr-us',
-    // start: '+=400 center',
-    start: 'center center',
-    // end:'+=500 center',
-    markers:true,
+    start:'center center',
+    start: 'top top',
+    // markers:true,
+    // end: `+=${sectionContainer.offsetWidth}`,
     scrub: true,
     pin:true,
   },
-  opacity: 1,
-  x: 0,
+  opacity:1,
 })
-// .to('.descr-us__team-link', {
-//   scrollTrigger: {
-//     trigger: '.descr-us__container',
-//     start: '+=450 center',
-//     end: '+=550 center',
-//     scrub: 1,
-//     snap: {
-//       duration:0.5,
-//       delay:1
-//     }
-//   },
-//   marginLeft: -15,
-// })
 // .to('.black-circle', {
-//   scrollTrigger: {
-//     trigger:'.descr-us',
-//     start:'heightDescrContainer',
-//     end:'+=1000 ',
-//     scrub: true,
-//   },
-//   x:0,
+//   xPercent: 100,
 //   scale:4,
+//   scrollTrigger: {
+//     pinnedContainer:'.descr-us',
+//     scrub: true,
+//     markers: true,
+//     start: ' center center',
+//     // end: 'bottom -=1000',
+//     // pin:true,
+//   },
 // })
 
 // let animontAnier = tl.to(sectionPanel, {
@@ -137,7 +131,7 @@ tl.to('.about__title', {
 
 
 
-// let tl = gsap.timeline({
+// let tl1 = gsap.timeline({
 //   scrollTrigger: {
 //     trigger: '.main',
 //     start: pageSection[0].offsetHeight,
@@ -149,42 +143,52 @@ tl.to('.about__title', {
 //     xPercent: -100
 //   })
 
+/////////////////////////////
 
-// pageSection.forEach(section => {
-//   const intoAnim = gsap.timeline({paused: true})
+// const scrolling = {
+//   enabled: true,
+//   events: "scroll,wheel,touchmove,pointermove".split(","),
+//   prevent: e => e.preventDefault(),
+//   disable() {
+//     if (scrolling.enabled) {
+//       scrolling.enabled = false;
+//       window.addEventListener("scroll", gsap.ticker.tick, {passive: true});
+//       scrolling.events.forEach((e, i) => (i ? document : window).addEventListener(e, scrolling.prevent, {passive: false}));
+//     }
+//   },
+//   enable() {
+//     if (!scrolling.enabled) {
+//       scrolling.enabled = true;
+//       window.removeEventListener("scroll", gsap.ticker.tick);
+//       scrolling.events.forEach((e, i) => (i ? document : window).removeEventListener(e, scrolling.prevent));
+//     }
+//   }
+// };
 
-//   ScrollTrigger.create({
-//     trigger: section,
-//     onEnter: () => goToSection(section, intoAnim),
-//   });
 
-//   ScrollTrigger.create({
-//     trigger: section,
-//     start: "bottom bottom",
-//     onEnterBack: () => goToSection(section),
-//   });
-// });
 
-////////////////////////
+// function goToSection(section, anim, i) {
+//   if (scrolling.enabled) { // skip if a scroll tween is in progress
+//     scrolling.disable();
+//     gsap.to(window, {
+//       scrollTo: {y: section, autoKill: false},
+//       onComplete: scrolling.enable,
+//       duration: 1
+//     });
 
-// function goToSection(i) {
-//   gsap.to(window, {
-//     scrollTo: { y: i * innerHeight, autoKill: false, ease: "none" },
-//     duration: 1.5,
-//   });
+//     anim && anim.restart();
+//   }
 // }
 
-// pageSection.forEach((eachPanel, i) => {
-//   const intoAnim = gsap.timeline({paused: true})
+// pageSection.forEach((section, i) => {
+//   const intoAnim = gsap.from(section.querySelector(".right-col"), {yPercent: 50, duration: 1, paused: true});
 
 //   ScrollTrigger.create({
-//     trigger: eachPanel,
-//     onEnter: () => goToSection(i, intoAnim)
+//     trigger: section,
+//     start: "top bottom-=1",
+//     end: "bottom top+=1",
+//     onEnter: () => goToSection(section, intoAnim),
+//     onEnterBack: () => goToSection(section)
 //   });
 
-//   ScrollTrigger.create({
-//     trigger: eachPanel,
-//     start: "bottom bottom",
-//     onEnterBack: () => goToSection(i)
-//   });
 // });

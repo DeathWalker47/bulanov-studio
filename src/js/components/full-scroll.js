@@ -5,7 +5,7 @@ import { bottom, right } from "@popperjs/core";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-let pageSection, hoverImgMenu, wrapperSite, observer, heightDescrContainer
+let pageSection, hoverImgMenu, wrapperSite, observer
 
 observer = new IntersectionObserver((entries) => {
   // console.log(entries);
@@ -38,7 +38,7 @@ pageSection.forEach(el => {
 })
 
 
-let tl = gsap.timeline();
+const tl = gsap.timeline({ defaults: {delay: 1, ease: "none"} });
 
 // ScrollTrigger.create({
 //   animation:tl,
@@ -48,8 +48,7 @@ let tl = gsap.timeline();
 //   scrub: 1,
 //   markers: true,
 // })
-let descrHeight = document.querySelector('.descr-us').clientHeight
-heightDescrContainer = document.querySelector('.descr-us__container').clientHeight + 400;
+let descrHeight = document.querySelector('.descr-us__text').clientHeight
 let sectionPanel = gsap.utils.toArray('.about .panel');
 let sectionContainer = document.querySelector('.about__inner')
 let teamLink = gsap.utils.toArray('.descr-us__team-link')
@@ -78,7 +77,7 @@ tl.to('.about__title', {
 },0)
 .to(sectionPanel, {
   xPercent: -73 * (sectionPanel.length - 1),
-  ease: 'none',
+  // ease: 'none',
   duration: 6,
   scrollTrigger: {
     trigger: '.about',
@@ -87,33 +86,43 @@ tl.to('.about__title', {
     end: `+=${sectionContainer.offsetWidth}`
   }
 })
-
 .to(teamLink, {
   xPercent: -100 * (teamLink.length - 1),
   opacity:1,
   ease: 'none',
-  stagger: 0.5,
+  stagger: 0.2,
   scrollTrigger: {
     trigger: '.descr-us',
-    start:'center center',
+    // start:'center center',
     start: 'top top',
+    end: 'center center',
+    pin:true,
     // markers:true,
     // end: `+=${sectionContainer.offsetWidth}`,
     scrub: true,
-    pin:true,
   },
   opacity:1,
+})
+.to('.black-circle', {
+  xPercent: 100,
+  scale:4,
+  scrollTrigger: {
+    trigger:'.descr-us__container',
+    scrub: true,
+    markers:true,
+    start: `bottom+=30 center`,
+    end: 'bottom-=400 bottom'
+  },
 })
 // .to('.black-circle', {
 //   xPercent: 100,
 //   scale:4,
 //   scrollTrigger: {
-//     pinnedContainer:'.descr-us',
+//     trigger:'.descr-us__container',
 //     scrub: true,
-//     markers: true,
-//     start: ' center center',
-//     // end: 'bottom -=1000',
-//     // pin:true,
+//     markers:true,
+//     start: 'bottom+=30 center',
+//     end: 'bottom-=300 bottom'
 //   },
 // })
 

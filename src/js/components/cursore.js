@@ -109,7 +109,7 @@ heroSection.addEventListener('mousemove', (e)=> {
   timeout = setTimeout(function(){
     eyeTop.classList.add('active');
     eyeBottom.classList.add('active');
-    ;}, 1000);
+    ;}, 2000);
 
 });
 

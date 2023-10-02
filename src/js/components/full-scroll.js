@@ -40,14 +40,6 @@ pageSection.forEach(el => {
 
 const tl = gsap.timeline({ defaults: {delay: 1, ease: "none"} });
 
-// ScrollTrigger.create({
-//   animation:tl,
-//   trigger:'.about',
-//   start:' center center',
-//   end:'bottom bottom',
-//   scrub: 1,
-//   markers: true,
-// })
 let descrHeight = document.querySelector('.descr-us__text').clientHeight
 let sectionPanel = gsap.utils.toArray('.about .panel');
 let sectionContainer = document.querySelector('.about__inner')
@@ -58,7 +50,6 @@ tl.to('.about__title', {
     start:'top center',
     end: '+=400',
     scrub: true,
-
   },
   xPercent: 40,
   opacity: 1
@@ -90,7 +81,7 @@ tl.to('.about__title', {
   xPercent: -100 * (teamLink.length - 1),
   opacity:1,
   ease: 'none',
-  stagger: 0.2,
+  stagger: 0.5,
   scrollTrigger: {
     trigger: '.descr-us',
     // start:'center center',
@@ -109,9 +100,9 @@ tl.to('.about__title', {
   scrollTrigger: {
     trigger:'.descr-us__container',
     scrub: true,
-    markers:true,
-    start: `bottom+=30 center`,
-    end: 'bottom-=400 bottom'
+    // markers:true,
+    start: `bottom+=150 center`,
+    end: 'bottom+=160 bottom'
   },
 })
 // .to('.black-circle', {
